@@ -1,20 +1,30 @@
-import React, { Component } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { AppContext } from '../App.js'
 import axios from 'axios'
 
-export default class NewsFeed extends Component {
-  
-  componentDidMount() {
-    axios.get('http://localhost:3003/posts')
+export const NewsFeed = () => {
+
+  const thisContext = useContext(AppContext)
+
+  console.log(thisContext)
+  React.useEffect(() => {
+
+    axios.get('http://localhost:3003/posts', {
+      headers: {
+        Authorization: `Bearer ${thisContext.state.userToken}`
+      }
+    })
       .then(res => {
-
+        console.log(res)
       })
-  }
-
-  render() {
+  })
+  
     return(
       <div>
         hiiii
       </div>
     )
-  }
+
 }
+
+export default NewsFeed

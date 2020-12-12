@@ -7,13 +7,22 @@ export default class LoginUser extends Component {
       <React.Fragment>
         <AppContext.Consumer>
           {(context) => (
-            <form>
+            <form onSubmit={context.state.handleLoginSubmit}>
               <input
                 type="text"
+                name="email"
                 onChange={context.state.handleLoginChange}
                 value={context.state.loginEmail}
                 id="loginEmail"
               />
+              <input
+                type="password"
+                name="password"
+                onChange={context.state.handleLoginChange}
+                value={context.state.loginPassword}
+                id="loginPassword"
+              />
+              <input type="submit" value="Login" />
             </form>
           )}
         </AppContext.Consumer>

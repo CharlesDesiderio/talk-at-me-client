@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
 import LoginUser from './components/LoginUser'
 
@@ -20,6 +21,24 @@ class AppProvider extends Component {
       this.setState({
         [event.target.id]: event.target.value
       })
+    },
+    handleLoginSubmit: (event) => {
+      event.preventDefault()
+      axios.post('http://localhost:3003/users/login', {
+        email: this.state.loginEmail,
+        password: this.state.loginPassword
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => {
+        console.log(res)
+        this.setState({
+          userToken: res.data.token
+        })
+      })
+
     }
   }
 
@@ -47,7 +66,7 @@ export default class App extends Component {
                 Test
                 {context.state.userToken}
                 {context.state.userToken.length === 0 ? 
-                      <LoginUser />
+                  <LoginUser />
                   : 
                   <NewsFeed />  
                 }
