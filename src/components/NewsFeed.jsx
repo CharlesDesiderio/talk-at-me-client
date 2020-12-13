@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { AppContext } from '../App.js'
 import axios from 'axios'
 
@@ -6,8 +6,8 @@ export const NewsFeed = () => {
 
   const thisContext = useContext(AppContext)
   const [postData, setPostData] = useState([])
+  const [lastLikeData, setLastLikeData] = useState('')
 
-  console.log(thisContext)
   React.useEffect(() => {
 
     axios.get('http://localhost:3003/posts', {
@@ -17,35 +17,40 @@ export const NewsFeed = () => {
     })
       .then(res => {
         setPostData(res.data.posts)
-        // postData = res.data.posts
-        // console.log(postData[0])
       })
   }, [])
-  
+
     return(
       <div>
         <div>
           {postData.map(post => {
+            let thisDate = new Date(post.postDate * 1).toLocaleString()
             return (
               <div>
+                <p>Language: {post.postLanguage}</p>
                 <p>{post.postCreator}</p>
                 <p>{post.postedText}</p>
+                <p>{thisDate}</p>
                 <div>{post.comments.map(comment => {
+                  let thisDate = new Date(comment.commentDate * 1).toLocaleString()
                   return (
                     <div>
                       <p>{comment.userId}</p>
-                      <p>{Date(comment.commentDate)}</p>
+                      <p>{thisDate}</p>
                       <p>{comment.commentText}</p>
                     </div>
                   )
                 })}</div>
+                  <p>Likes: {post.likedUsers.length} </p>
+                  <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
+                    <input type="submit" value="HEART"/>
+                  </form>
               </div>
               )
           })}
         </div>
       </div>
     )
-
 }
 
 export default NewsFeed

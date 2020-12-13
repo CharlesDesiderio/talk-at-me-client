@@ -33,12 +33,21 @@ class AppProvider extends Component {
         }
       })
       .then(res => {
-        console.log(res)
         this.setState({
           userToken: res.data.token
         })
       })
+    },
+    handleNewLike: (event) => {
+      event.preventDefault()
+      console.log(event.target.id)
 
+      axios.get(`http://localhost:3003/posts/like/${event.target.id}`, {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+      })
+  
     }
   }
 
@@ -63,8 +72,6 @@ export default class App extends Component {
             {(context) => (
 
               <React.Fragment>
-                Test
-                {context.state.userToken}
                 {context.state.userToken.length === 0 ? 
                   <LoginUser />
                   : 
