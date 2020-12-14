@@ -19,6 +19,7 @@ class AppProvider extends Component {
     loginPassword: '',
     createPostPostedText: '',
     createPostPostedLanguage: 'EN',
+    newCommentText: '',
     posts: [],
     getNewsFeed: () => {
       axios.get('http://localhost:3003/posts', {
@@ -90,6 +91,31 @@ class AppProvider extends Component {
         }
       })
       .then(() => {
+        this.state.getNewsFeed()
+      })
+    },
+    handleCommentChange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    },
+    handleCommentSubmit: (event, postId) => {
+      event.preventDefault()
+
+      axios.put(`http://localhost:3003/posts/comment`, {
+          commentText: this.state.newCommentText,
+          postId: postId
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${this.state.userToken}`
+          }
+        }
+      )
+      .then(() => {
+        this.setState({
+          newCommentText: ''
+        })
         this.state.getNewsFeed()
       })
     }
