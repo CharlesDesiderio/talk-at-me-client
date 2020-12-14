@@ -20,14 +20,29 @@ export const NewsFeed = () => {
       })
   }, [])
 
+  const langCheck = (lang) => {
+    switch(lang) {
+      case 'EN':
+        return '🇺🇸'
+      case 'CN':
+        return '🇨🇳'
+      case 'KR':
+        return '🇰🇷'
+      case 'ES':
+        return '🇪🇸'
+    }
+    
+  }
+
     return(
       <div>
         <div>
           {postData.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
+            let thisLang = langCheck(post.postLanguage)
             return (
               <div>
-                <p>Language: {post.postLanguage}</p>
+                <p>Language: {thisLang}</p>
                 <p>{post.postCreator}</p>
                 <p>{post.postedText}</p>
                 <p>{thisDate}</p>
