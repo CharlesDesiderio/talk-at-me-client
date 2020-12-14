@@ -14,17 +14,34 @@ export const NewsFeed = () => {
   }, [])
 
   const langCheck = (lang) => {
-    switch(lang) {
-      case 'EN':
-        return '🇺🇸'
-      case 'CN':
-        return '🇨🇳'
-      case 'KR':
-        return '🇰🇷'
-      case 'ES':
-        return '🇪🇸'
+    switch (lang) {
+      case "EN":
+        return "🇺🇸 English";
+      case "AR":
+        return "🇸🇦 Arabic";
+      case "CN":
+        return "🇨🇳 Chinese";
+      case "FR":
+        return "🇫🇷 French";
+      case "DE":
+        return "🇩🇪 German";
+      case "HI":
+        return "🇮🇳 Hindi";
+      case "IT":
+        return "🇮🇹 Italian";
+      case "JP":
+        return "🇯🇵 Japanese";
+      case "KR":
+        return "🇰🇷 Korean";
+      case "PR":
+        return "🇵🇹 Portugese";
+      case "RU":
+        return "🇷🇺 Russian";
+      case "ES":
+        return "🇪🇸 Spanish";
+      case "SW":
+        return "🇸🇪 Swedish";
     }
-    
   }
 
     return(
