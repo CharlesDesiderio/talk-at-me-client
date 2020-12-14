@@ -9,15 +9,7 @@ export const NewsFeed = () => {
   const [lastLikeData, setLastLikeData] = useState('')
 
   React.useEffect(() => {
-
-    axios.get('http://localhost:3003/posts', {
-      headers: {
-        Authorization: `Bearer ${thisContext.state.userToken}`
-      }
-    })
-      .then(res => {
-        setPostData(res.data.posts)
-      })
+    thisContext.state.getNewsFeed()
   }, [])
 
   const langCheck = (lang) => {
@@ -37,7 +29,7 @@ export const NewsFeed = () => {
     return(
       <div>
         <div>
-          {postData.map(post => {
+          {thisContext.state.posts.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
             let thisLang = langCheck(post.postLanguage)
             return (

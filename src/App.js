@@ -18,6 +18,19 @@ class AppProvider extends Component {
     userData: {},
     loginEmail: '',
     loginPassword: '',
+    posts: [],
+    getNewsFeed: () => {
+      axios.get('http://localhost:3003/posts', {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+      })
+        .then(res => {
+          this.setState({
+            posts: res.data.posts
+          })
+        })
+    },
     handleLoginChange: (event) => {
       this.setState({
         [event.target.id]: event.target.value
@@ -42,14 +55,15 @@ class AppProvider extends Component {
     },
     handleNewLike: (event) => {
       event.preventDefault()
-      console.log(event.target.id)
 
       axios.get(`http://localhost:3003/posts/like/${event.target.id}`, {
         headers: {
           Authorization: `Bearer ${this.state.userToken}`
         }
       })
-  
+      .then(() => {
+        this.state.getNewsFeed()
+      })
     }
   }
 
