@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
 import LoginUser from './components/LoginUser'
+import { NavBar } from './components/NavBar';
 
 // Define Context here
 const AppContext = React.createContext();
@@ -34,7 +35,8 @@ class AppProvider extends Component {
       })
       .then(res => {
         this.setState({
-          userToken: res.data.token
+          userToken: res.data.token,
+          userData: res.data.user
         })
       })
     },
@@ -70,10 +72,10 @@ export default class App extends Component {
         <div>
           <AppContext.Consumer>
             {(context) => (
-
               <React.Fragment>
+                <NavBar />
                 {context.state.userToken.length === 0 ? 
-                  <LoginUser />
+                  ''
                   : 
                   <NewsFeed />  
                 }
