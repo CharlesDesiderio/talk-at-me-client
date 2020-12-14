@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
-import LoginUser from './components/LoginUser'
+import { NavBar } from './components/NavBar';
 
 // Define Context here
 const AppContext = React.createContext();
@@ -17,6 +17,21 @@ class AppProvider extends Component {
     userData: {},
     loginEmail: '',
     loginPassword: '',
+    createPostPostedText: '',
+    createPostPostedLanguage: 'EN',
+    posts: [],
+    getNewsFeed: () => {
+      axios.get('http://localhost:3003/posts', {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+      })
+        .then(res => {
+          this.setState({
+            posts: res.data.posts
+          })
+        })
+    },
     handleLoginChange: (event) => {
       this.setState({
         [event.target.id]: event.target.value
@@ -34,20 +49,46 @@ class AppProvider extends Component {
       })
       .then(res => {
         this.setState({
-          userToken: res.data.token
+          userToken: res.data.token,
+          userData: res.data.user
         })
+      })
+    },
+    handlePostPostedLanguageChange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    }, 
+    handlePostPostedLanguageSubmit: (event) => {
+      event.preventDefault()
+
+      axios.post('http://localhost:3003/posts', {
+        text: this.state.createPostPostedText,
+        language: this.state.createPostPostedLanguage
+      }, {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+      })
+      .then(() => {
+        this.setState({
+          createPostPostedText: '',
+          createPostPostedLanguage: ''
+        })
+        this.state.getNewsFeed()
       })
     },
     handleNewLike: (event) => {
       event.preventDefault()
-      console.log(event.target.id)
 
       axios.get(`http://localhost:3003/posts/like/${event.target.id}`, {
         headers: {
           Authorization: `Bearer ${this.state.userToken}`
         }
       })
-  
+      .then(() => {
+        this.state.getNewsFeed()
+      })
     }
   }
 
@@ -70,13 +111,14 @@ export default class App extends Component {
         <div>
           <AppContext.Consumer>
             {(context) => (
-
               <React.Fragment>
+                <NavBar />
                 {context.state.userToken.length === 0 ? 
-                  <LoginUser />
+                  ''
                   : 
                   <NewsFeed />  
                 }
+                
               </React.Fragment>
 
 
