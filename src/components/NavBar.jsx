@@ -5,7 +5,6 @@ import LoginUser from './LoginUser.jsx'
 export const NavBar = () => {
 
   const thisContext = useContext(AppContext)
-  console.log(thisContext.state.userToken)
 
   return (
     <div>

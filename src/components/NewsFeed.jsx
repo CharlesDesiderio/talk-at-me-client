@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { CreatePost } from './CreatePost';
 import { AppContext } from '../App.js'
 import axios from 'axios'
 
@@ -29,6 +30,7 @@ export const NewsFeed = () => {
     return(
       <div>
         <div>
+        <CreatePost />
           {thisContext.state.posts.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
             let thisLang = langCheck(post.postLanguage)

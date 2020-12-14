@@ -93,6 +93,7 @@ export default class App extends Component {
                   : 
                   <NewsFeed />  
                 }
+                
               </React.Fragment>
 
 
