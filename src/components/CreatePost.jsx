@@ -7,9 +7,9 @@ export const CreatePost = () => {
 
   return (
     <div>
-      <form>
-        <input type="text" id="postedText" />
-        <select id="postLanguage">
+      <form onSubmit={thisContext.state.handlePostPostedLanguageSubmit}>
+        <input required type="text" id="createPostPostedText" name="postedText" onChange={thisContext.state.handlePostPostedLanguageChange} value={thisContext.state.createPostPostedText} />
+        <select required id="createPostPostedLanguage" name="postLanguage" onChange={thisContext.state.handlePostPostedLanguageChange} value={thisContext.state.createPostPostedLanguage}>
           <option value="EN">🇺🇸</option>
           <option value="CN">🇨🇳</option>
           <option value="KR">🇰🇷</option>

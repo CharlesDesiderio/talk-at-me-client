@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
-import LoginUser from './components/LoginUser'
 import { NavBar } from './components/NavBar';
 
 // Define Context here
@@ -18,6 +17,8 @@ class AppProvider extends Component {
     userData: {},
     loginEmail: '',
     loginPassword: '',
+    createPostPostedText: '',
+    createPostPostedLanguage: 'EN',
     posts: [],
     getNewsFeed: () => {
       axios.get('http://localhost:3003/posts', {
@@ -51,6 +52,30 @@ class AppProvider extends Component {
           userToken: res.data.token,
           userData: res.data.user
         })
+      })
+    },
+    handlePostPostedLanguageChange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    }, 
+    handlePostPostedLanguageSubmit: (event) => {
+      event.preventDefault()
+
+      axios.post('http://localhost:3003/posts', {
+        text: this.state.createPostPostedText,
+        language: this.state.createPostPostedLanguage
+      }, {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+      })
+      .then(() => {
+        this.setState({
+          createPostPostedText: '',
+          createPostPostedLanguage: ''
+        })
+        this.state.getNewsFeed()
       })
     },
     handleNewLike: (event) => {
