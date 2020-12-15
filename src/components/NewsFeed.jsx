@@ -55,7 +55,7 @@ export const NewsFeed = () => {
             let thisLang = langCheck(post.postLanguage)
             let likedByUser = thisContext.state.userData.userId //post.likedUsers.includes()
             return (
-              <div className="postBody">
+              <div key={post._id} className="postBody">
                 <div className="postBodyHeader">
                   <span className="spanBold">{post.postCreator}</span>
                   <span className="spanGray">{thisDate}</span>
@@ -74,7 +74,7 @@ export const NewsFeed = () => {
                 <div>{post.comments.map(comment => {
                   let thisDate = new Date(comment.commentDate * 1).toLocaleString()
                   return (
-                    <div className="postComment">
+                    <div key={comment._id} className="postComment">
                       <div className="commentDecorBox"></div>
                       <div className="commentDetail">
                         <span className="postCommentName">{comment.userId}</span><span className="postCommentTime">{thisDate}</span>
