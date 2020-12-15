@@ -3,6 +3,7 @@ import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
 import { NavBar } from './components/NavBar';
 
+import './style/App.css'
 
 
 // Define Context here

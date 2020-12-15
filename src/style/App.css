@@ -1,0 +1,125 @@
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+}
+
+.container {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100vw;
+  background-color: ghostwhite;
+  margin: 0;
+  margin-top: 37px;
+  padding-top: 1rem;
+}
+
+.navBar {
+  box-sizing: border-box;
+  width: 375px;
+  height: 65px;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  margin: 0;
+  background-color: #0B0A0B;
+  position: fixed;
+  top: 0px;
+  color: white;
+  border-bottom: 5px solid #03B1FF;
+  height: 25px;
+}
+
+.newsFeed {
+  margin: 0px;
+  padding: 0px;
+}
+
+.postBody {
+  box-sizing: border-box;
+  margin: 0px;
+  width: 100vw;
+  padding: 1rem;
+  border-top: 5px solid #08E0A8;
+  border-bottom: 5px solid #03B1FF;
+}
+
+.postBodyHeader {
+  width: 100%;
+}
+
+.postBodyHeader span {
+  display: block;
+}
+
+.spanBold {
+  font-weight: 700;
+}
+
+.spanGray {
+  font-size: .85rem;
+  color: lightgray;
+}
+
+.postBodyText {
+  width: 85vw;
+  margin: auto;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.postBodyLanguageSpan {
+  font-size: .75rem;
+  display: inline-block;
+  background-color: rgb(8, 224, 168, 0.25);
+  padding: .05rem .5rem;
+  border-radius: 20px;
+  margin-bottom: .25rem;
+}
+
+.postComment {
+  font-size: .65rem;
+  width: 85vw;
+  margin: auto;
+  padding-top: .5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.commentDecorBox {
+  display: inline-block;
+  width: 10px;
+  height: 12px;
+  border-radius: 0 0 0 4px;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin-right: 5px;
+}
+
+.postCommentDetail {
+  display: block;
+}
+
+.postCommentName {
+  font-weight: 700;
+}
+
+.postCommentTime {
+  display: inline-block;
+  margin-left: .5rem;
+  color: lightgray;
+}
+
+.likeSubmitButton {
+  border: none;
+  background-color: white;
+  padding: .25rem;
+  font-size: .75rem;
+}
+
+.likedHeartIcon {
+  padding-left: 5px;
+  font-size: .75rem;
+}

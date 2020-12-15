@@ -7,7 +7,7 @@ export const NavBar = () => {
   const thisContext = useContext(AppContext)
 
   return (
-    <div>
+    <div className="navBar">
       {thisContext.state.userToken ? thisContext.state.userData.displayName : <LoginUser />}
     </div>
   )
