@@ -121,6 +121,18 @@ class AppProvider extends Component {
         })
         this.state.getNewsFeed()
       })
+    },
+    deletePost: (event, postId) => {
+      event.preventDefault()
+
+      axios.delete(`http://localhost:3003/posts/delete/${postId}`, {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+      })
+      .then(() => {
+        this.state.getNewsFeed()
+      })
     }
   }
 
