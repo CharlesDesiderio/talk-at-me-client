@@ -3,6 +3,7 @@ import { CreatePost } from './CreatePost';
 import { AppContext } from '../App.js'
 import { CreateComment } from './CreateComment';
 import axios from 'axios'
+import { DeletePost } from './DeletePost';
 
 export const NewsFeed = () => {
 
@@ -64,7 +65,7 @@ export const NewsFeed = () => {
                   <span className="postBodyLanguageSpan">{thisLang}</span>
                   <br />
                   {post.postedText}
-                  {post.postCreatorId === thisContext.state.userData.userId ? 'delete button component' : ''}
+                  {post.postCreatorId === thisContext.state.userData.userId ? <DeletePost postId={post._id} /> : ''}
                   <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
                     
                     <input className="likeSubmitButton" type="submit" value={post.likedUsers.includes(likedByUser) ? '❤️' : '🖤'}/><span className="likedHeartIcon">{post.likedUsers.length}</span>
