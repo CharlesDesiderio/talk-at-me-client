@@ -3,13 +3,14 @@ import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
 import { NavBar } from './components/NavBar';
 
+
+
 // Define Context here
 const AppContext = React.createContext();
 
 export { AppContext }
 
 // Create Provider Component
-
 class AppProvider extends Component {
 
   state = {
@@ -137,7 +138,7 @@ export default class App extends Component {
   render() {
     return (
       <AppProvider>
-        <div>
+        <div className="container">
           <AppContext.Consumer>
             {(context) => (
               <React.Fragment>
