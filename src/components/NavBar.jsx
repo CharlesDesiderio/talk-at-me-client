@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../App.js'
-import LoginUser from './LoginUser.jsx'
 
 export const NavBar = () => {
 
@@ -8,7 +7,7 @@ export const NavBar = () => {
 
   return (
     <div className="navBar">
-      {thisContext.state.userToken ? thisContext.state.userData.displayName : <LoginUser />}
+      {thisContext.state.userToken ? thisContext.state.userData.displayName : ''}
     </div>
   )
 

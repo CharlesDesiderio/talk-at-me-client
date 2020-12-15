@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
+  background-color: ghostwhite;
 }
 
 .container {
@@ -42,6 +43,7 @@ body {
   padding: 1rem;
   border-top: 5px solid #08E0A8;
   border-bottom: 5px solid #03B1FF;
+  padding-bottom: 3rem;
 }
 
 .postBodyHeader {
@@ -91,7 +93,7 @@ body {
 .commentDecorBox {
   display: inline-block;
   width: 10px;
-  height: 12px;
+  height: 18px;
   border-radius: 0 0 0 4px;
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
@@ -114,7 +116,7 @@ body {
 
 .likeSubmitButton {
   border: none;
-  background-color: white;
+  background-color: ghostwhite;
   padding: .25rem;
   font-size: .75rem;
 }
@@ -122,4 +124,36 @@ body {
 .likedHeartIcon {
   padding-left: 5px;
   font-size: .75rem;
+}
+
+.loginUser {
+  width: 60vw;
+  margin: auto;
+  padding: 1rem;
+}
+
+.loginUser form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.loginUser input {
+  font-size: .75rem;
+  margin: .5rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #08E0A8;
+  
+}
+
+.loginButton {
+  width: 50%;
+  margin: .5rem auto !important;
+  display: block;
+  background-color: #08E0A8;
+}
+
+.loginButton:hover {
+  background-color: white;
 }
