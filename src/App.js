@@ -3,13 +3,14 @@ import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
 import { NavBar } from './components/NavBar';
 
+
+
 // Define Context here
 const AppContext = React.createContext();
 
 export { AppContext }
 
 // Create Provider Component
-
 class AppProvider extends Component {
 
   state = {
@@ -19,6 +20,7 @@ class AppProvider extends Component {
     loginPassword: '',
     createPostPostedText: '',
     createPostPostedLanguage: 'EN',
+    newCommentText: '',
     posts: [],
     getNewsFeed: () => {
       axios.get('http://localhost:3003/posts', {
@@ -92,6 +94,31 @@ class AppProvider extends Component {
       .then(() => {
         this.state.getNewsFeed()
       })
+    },
+    handleCommentChange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    },
+    handleCommentSubmit: (event, postId) => {
+      event.preventDefault()
+
+      axios.put(`http://localhost:3003/posts/comment`, {
+          commentText: this.state.newCommentText,
+          postId: postId
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${this.state.userToken}`
+          }
+        }
+      )
+      .then(() => {
+        this.setState({
+          newCommentText: ''
+        })
+        this.state.getNewsFeed()
+      })
     }
   }
 
@@ -111,7 +138,7 @@ export default class App extends Component {
   render() {
     return (
       <AppProvider>
-        <div>
+        <div className="container">
           <AppContext.Consumer>
             {(context) => (
               <React.Fragment>

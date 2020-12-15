@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { CreatePost } from './CreatePost';
 import { AppContext } from '../App.js'
+import { CreateComment } from './CreateComment';
 import axios from 'axios'
 
 export const NewsFeed = () => {
@@ -67,6 +68,7 @@ export const NewsFeed = () => {
                     </div>
                   )
                 })}</div>
+                  <CreateComment postId={post._id} />
                   <p>Likes: {post.likedUsers.length} </p>
                   <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
                     <input type="submit" value="HEART"/>
