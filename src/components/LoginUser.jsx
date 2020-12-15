@@ -4,11 +4,12 @@ import { AppContext } from '../App.js'
 export default class LoginUser extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="loginUser">
         <AppContext.Consumer>
           {(context) => (
             <form onSubmit={context.state.handleLoginSubmit}>
               <input
+                placeholder="Email Address"
                 type="text"
                 name="email"
                 onChange={context.state.handleLoginChange}
@@ -16,17 +17,18 @@ export default class LoginUser extends Component {
                 id="loginEmail"
               />
               <input
+                placeholder="Password"
                 type="password"
                 name="password"
                 onChange={context.state.handleLoginChange}
                 value={context.state.loginPassword}
                 id="loginPassword"
               />
-              <input type="submit" value="Login" />
+              <input className="loginButton" type="submit" value="Login" />
             </form>
           )}
         </AppContext.Consumer>
-      </React.Fragment>
+      </div>
     );
   }
 }

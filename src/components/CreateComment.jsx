@@ -4,13 +4,14 @@ import { AppContext } from '../App.js'
 export const CreateComment = (props) => {
 
   const thisContext = useContext(AppContext)
-
+  let thisCommentId = `newCommentText${props.postId}`
 
   return (
-    <div>
+    <div className="commentForm">
       <form onSubmit={(event) => thisContext.state.handleCommentSubmit(event, props.postId)}>
-        <input type="text" id="newCommentText" required value={thisContext.state.newCommentText} onChange={thisContext.state.handleCommentChange} />
-        <input type="submit" value="Add Comment" />
+        <input className="commentFormInput" type="text" id={thisCommentId} required value={thisContext.state.thisCommentId} onChange={thisContext.state.handleCommentChange} />
+
+        <input className="commentFormButton" type="submit" value="💬" />
       </form>
     </div>
   )

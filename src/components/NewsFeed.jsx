@@ -46,38 +46,49 @@ export const NewsFeed = () => {
   }
 
     return(
-      <div>
-        <div>
-        <CreatePost />
+
+        <div className="newsFeed">
+        {/* <CreatePost /> */}
           {thisContext.state.posts.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
             let thisLang = langCheck(post.postLanguage)
+            let likedByUser = thisContext.state.userData.userId //post.likedUsers.includes()
             return (
-              <div>
-                <p>Language: {thisLang}</p>
-                <p>{post.postCreator}</p>
-                <p>{post.postedText}</p>
-                <p>{thisDate}</p>
+              <div className="postBody">
+                <div className="postBodyHeader">
+                  <span className="spanBold">{post.postCreator}</span>
+                  <span className="spanGray">{thisDate}</span>
+                  
+                </div>
+                <div className="postBodyText">
+                  <span className="postBodyLanguageSpan">{thisLang}</span>
+                  <br />
+                  {post.postedText}
+                  {post.postCreatorId === thisContext.state.userData.userId ? 'delete button component' : ''}
+                  <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
+                    
+                    <input className="likeSubmitButton" type="submit" value={post.likedUsers.includes(likedByUser) ? '❤️' : '🖤'}/><span className="likedHeartIcon">{post.likedUsers.length}</span>
+                  </form>
+                </div>
                 <div>{post.comments.map(comment => {
                   let thisDate = new Date(comment.commentDate * 1).toLocaleString()
                   return (
-                    <div>
-                      <p>{comment.userId}</p>
-                      <p>{thisDate}</p>
-                      <p>{comment.commentText}</p>
+                    <div className="postComment">
+                      <div className="commentDecorBox"></div>
+                      <div className="commentDetail">
+                        <span className="postCommentName">{comment.userId}</span><span className="postCommentTime">{thisDate}</span>
+                        <span className="postCommentDetail">{comment.commentText}</span>
+
+                      </div>
                     </div>
                   )
                 })}</div>
                   <CreateComment postId={post._id} />
-                  <p>Likes: {post.likedUsers.length} </p>
-                  <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
-                    <input type="submit" value="HEART"/>
-                  </form>
               </div>
               )
           })}
         </div>
-      </div>
+
     )
 }
 
