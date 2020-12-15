@@ -8,7 +8,7 @@ export const DeletePost = (props) => {
   return (
     <div className="deletePost">
       <form onSubmit={(event) => thisContext.state.deletePost(event, props.postId)}>
-        <input type="submit" value="X" />
+        <input className="deletePostButton" type="submit" value="❌" />
       </form>
 
     </div>

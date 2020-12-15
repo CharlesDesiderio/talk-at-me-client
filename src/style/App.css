@@ -40,6 +40,7 @@ body {
 }
 
 .postBody {
+  position: relative;
   box-sizing: border-box;
   margin: 0px;
   width: 100vw;
@@ -183,4 +184,16 @@ body {
   border-radius: 50%;
   height: 25px;
   width: 25px;
+}
+
+.deletePostButton {
+  position: absolute;
+  top: 62px;
+  right: 40px;
+  font-size: .65rem;
+  border: 1px solid red;
+  background-color: ghostwhite;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 }
