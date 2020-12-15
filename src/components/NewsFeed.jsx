@@ -64,7 +64,7 @@ export const NewsFeed = () => {
                   <span className="postBodyLanguageSpan">{thisLang}</span>
                   <br />
                   {post.postedText}
-                  
+                  {post.postCreatorId === thisContext.state.userData.userId ? 'delete button component' : ''}
                   <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
                     
                     <input className="likeSubmitButton" type="submit" value={post.likedUsers.includes(likedByUser) ? '❤️' : '🖤'}/><span className="likedHeartIcon">{post.likedUsers.length}</span>

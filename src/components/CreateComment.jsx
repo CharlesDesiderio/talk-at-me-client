@@ -7,11 +7,11 @@ export const CreateComment = (props) => {
   let thisCommentId = `newCommentText${props.postId}`
 
   return (
-    <div>
+    <div className="commentForm">
       <form onSubmit={(event) => thisContext.state.handleCommentSubmit(event, props.postId)}>
-        <input type="text" id={thisCommentId} required value={thisContext.state.thisCommentId} onChange={thisContext.state.handleCommentChange} />
+        <input className="commentFormInput" type="text" id={thisCommentId} required value={thisContext.state.thisCommentId} onChange={thisContext.state.handleCommentChange} />
 
-        <input type="submit" value="Add Comment" />
+        <input className="commentFormButton" type="submit" value="💬" />
       </form>
     </div>
   )
