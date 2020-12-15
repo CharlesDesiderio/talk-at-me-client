@@ -52,3 +52,4 @@ Initially I don't plan to allow users to edit posts or comments, but deletion is
 Currently planning to use the MERN stack. I was playing around with Python/Django, but I'm not sure if I'll be able to add all this functionaltiy in addition to learning an entire stack.
 
 Current option is Redux. This app will likely need a lot of state management and prop-drilling might not be the best way to handle all the moving parts.
+
