@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import NewsFeed from './components/NewsFeed'
+import LoginUser from './components/LoginUser.jsx'
 import { NavBar } from './components/NavBar';
 
+import './style/App.css'
 
 
 // Define Context here
@@ -102,9 +104,9 @@ class AppProvider extends Component {
     },
     handleCommentSubmit: (event, postId) => {
       event.preventDefault()
-
+      let newCommentText = `newCommentText${postId}`
       axios.put(`http://localhost:3003/posts/comment`, {
-          commentText: this.state.newCommentText,
+          commentText: this.state[`newCommentText${postId}`],
           postId: postId
         },
         {
@@ -115,7 +117,7 @@ class AppProvider extends Component {
       )
       .then(() => {
         this.setState({
-          newCommentText: ''
+          [newCommentText]: ''
         })
         this.state.getNewsFeed()
       })
@@ -144,7 +146,7 @@ export default class App extends Component {
               <React.Fragment>
                 <NavBar />
                 {context.state.userToken.length === 0 ? 
-                  ''
+                  <LoginUser />
                   : 
                   <NewsFeed />  
                 }
