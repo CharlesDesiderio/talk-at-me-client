@@ -12,6 +12,7 @@ import './style/App.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faBars, faTimes, faPlus, faShare } from '@fortawesome/free-solid-svg-icons'
+import { Profile } from './components/Profile';
 
 // Add icons to FontAwesome library
 library.add(fab, faBars, faTimes, faPlus, faShare)
@@ -34,6 +35,12 @@ class AppProvider extends Component {
     newCommentText: '',
     posts: [],
     displayNewPostBox: false,
+    displayMenu: false,
+    showBurger: () => {
+      this.setState({
+        displayMenu: !this.state.displayMenu
+      })
+    },
     toggleNewPostBox: () => {
       this.setState({
         displayNewPostBox: !this.state.displayNewPostBox
@@ -151,6 +158,36 @@ class AppProvider extends Component {
       .then(() => {
         this.state.getNewsFeed()
       })
+    },
+    langCheck: (lang) => {
+      switch (lang) {
+        case "EN":
+          return "🇺🇸 English";
+        case "AR":
+          return "🇸🇦 Arabic";
+        case "CN":
+          return "🇨🇳 Chinese";
+        case "FR":
+          return "🇫🇷 French";
+        case "DE":
+          return "🇩🇪 German";
+        case "HI":
+          return "🇮🇳 Hindi";
+        case "IT":
+          return "🇮🇹 Italian";
+        case "JP":
+          return "🇯🇵 Japanese";
+        case "KR":
+          return "🇰🇷 Korean";
+        case "PR":
+          return "🇵🇹 Portugese";
+        case "RU":
+          return "🇷🇺 Russian";
+        case "ES":
+          return "🇪🇸 Spanish";
+        case "SW":
+          return "🇸🇪 Swedish";
+      }
     }
   }
 
@@ -174,6 +211,7 @@ export default class App extends Component {
           <AppContext.Consumer>
             {(context) => (
               <React.Fragment>
+                {context.state.displayMenu === true ? <Profile /> : ''}
                 <NavBar />
                 {context.state.userToken.length === 0 ? 
                   <LoginUser />

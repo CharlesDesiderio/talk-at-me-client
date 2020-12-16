@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Oswald', sans-serif;
-
+  width: 100%;
   border: 0;
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
 .container {
   box-sizing: border-box;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   background-color: ghostwhite;
   margin: 0;
   margin-top: 37px;
@@ -24,7 +24,7 @@ body {
 .navBar {
   box-sizing: border-box;
   text-align: center;
-  width: 375px;
+  width: 100vw;
   height: 65px;
   padding: 1rem;
   padding-bottom: 2rem;
@@ -94,7 +94,7 @@ body {
 }
 
 .postComment {
-  font-size: .65rem;
+  font-size: .85rem;
   width: 85vw;
   margin: auto;
   padding-top: .5rem;
@@ -275,4 +275,23 @@ body {
   flex-direction: row;
   justify-content: space-around;
   padding-top: 5px;
+}
+
+.hamburgerButton {
+  border: none;
+  background-color: black;
+  color: ghostwhite;
+}
+
+.profile {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  border: 5px solid #08E0A8;
+  background-color: ghostwhite;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
