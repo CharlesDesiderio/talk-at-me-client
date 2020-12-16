@@ -10,10 +10,11 @@ export const NavBar = () => {
   return (
     <div className="navBar">
       
-      <div><FontAwesomeIcon icon="bars" /></div>
-      <span>{thisContext.state.userToken ? thisContext.state.userData.displayName : ''}</span>
-      <div>{thisContext.state.userToken ? <CreatePost /> : ''}</div>
-      <div>{thisContext.state.userToken ? <button className="newPostNavButton" onClick={thisContext.state.toggleNewPostBox}>{thisContext.state.displayNewPostBox ? <FontAwesomeIcon icon="times" /> : <FontAwesomeIcon icon="plus" />}</button> : '' }</div>
+      <div>{thisContext.state.userToken ? <FontAwesomeIcon icon="bars" /> : ''}</div>
+      <span>Talk@Me</span>
+      
+      <div>{thisContext.state.userToken ? <button className="newPostNavButton" onClick={thisContext.state.toggleNewPostBox}>{thisContext.state.displayNewPostBox ? <FontAwesomeIcon icon="times" /> : <FontAwesomeIcon icon="plus" />}</button> : '' }
+      <div>{thisContext.state.userToken ? <CreatePost /> : ''}</div></div>
     </div>
   )
 

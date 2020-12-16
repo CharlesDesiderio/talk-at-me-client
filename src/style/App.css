@@ -23,6 +23,7 @@ body {
 
 .navBar {
   box-sizing: border-box;
+  text-align: center;
   width: 375px;
   height: 65px;
   padding: 1rem;
@@ -75,6 +76,7 @@ body {
 }
 
 .postBodyText {
+  word-wrap: break-word;
   width: 85vw;
   margin: auto;
   padding-top: .75rem;

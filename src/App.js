@@ -28,7 +28,7 @@ class AppProvider extends Component {
     loginEmail: '',
     loginPassword: '',
     createPostPostedText: '',
-    createPostPostedLanguage: 'EN',
+    createPostPostedLanguage: '',
     newCommentText: '',
     posts: [],
     displayNewPostBox: false,
@@ -70,7 +70,9 @@ class AppProvider extends Component {
       .then(res => {
         this.setState({
           userToken: res.data.token,
-          userData: res.data.user
+          userData: res.data.user,
+          userLanguage: res.data.user.userLanguage,
+          createPostPostedLanguage: res.data.user.userLanguage
         })
       })
     },
@@ -93,7 +95,7 @@ class AppProvider extends Component {
       .then(() => {
         this.setState({
           createPostPostedText: '',
-          createPostPostedLanguage: '',
+          createPostPostedLanguage: this.state.userData.userLanguage,
           displayNewPostBox: false
         })
         this.state.getNewsFeed()
