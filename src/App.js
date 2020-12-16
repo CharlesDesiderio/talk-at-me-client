@@ -6,6 +6,8 @@ import { NavBar } from './components/NavBar';
 
 import './style/App.css'
 
+// Fontawesome install/usage guide: https://fontawesome.com/how-to-use/on-the-web/using-with/react
+
 // FontAwesome imports
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
