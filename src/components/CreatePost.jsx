@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../App.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const CreatePost = () => {
 
@@ -29,9 +30,11 @@ export const CreatePost = () => {
           <option value="SW">🇸🇪 Swedish</option>
         </select>
         <textarea required type="textarea" id="createPostPostedText" name="postedText" onChange={thisContext.state.handlePostPostedLanguageChange} value={thisContext.state.createPostPostedText} />
-        <button type="submit">POOST</button>
-
-        <button onClick={thisContext.state.toggleNewPostBox}>X</button>
+        <div className="createPostButtonsContainer">
+          <button type="submit"><FontAwesomeIcon icon="share" /></button>
+          <FontAwesomeIcon icon="bars" />
+          <button onClick={thisContext.state.toggleNewPostBox}><FontAwesomeIcon icon="times" /></button>
+        </div>
       </form>
     </div> : ''
     }
