@@ -6,6 +6,13 @@ import { NavBar } from './components/NavBar';
 
 import './style/App.css'
 
+// FontAwesome imports
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faBars, faTimes, faPlus, faShare } from '@fortawesome/free-solid-svg-icons'
+
+// Add icons to FontAwesome library
+library.add(fab, faBars, faTimes, faPlus, faShare)
 
 // Define Context here
 const AppContext = React.createContext();
@@ -86,7 +93,8 @@ class AppProvider extends Component {
       .then(() => {
         this.setState({
           createPostPostedText: '',
-          createPostPostedLanguage: ''
+          createPostPostedLanguage: '',
+          displayNewPostBox: false
         })
         this.state.getNewsFeed()
       })

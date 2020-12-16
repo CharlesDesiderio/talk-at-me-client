@@ -1,15 +1,11 @@
-import React, { useState, useContext } from 'react'
-import { CreatePost } from './CreatePost';
+import React, { useContext } from 'react'
 import { AppContext } from '../App.js'
 import { CreateComment } from './CreateComment';
-import axios from 'axios'
 import { DeletePost } from './DeletePost';
 
 export const NewsFeed = () => {
 
   const thisContext = useContext(AppContext)
-  const [postData, setPostData] = useState([])
-  const [lastLikeData, setLastLikeData] = useState('')
 
   React.useEffect(() => {
     thisContext.state.getNewsFeed()
@@ -49,7 +45,6 @@ export const NewsFeed = () => {
     return(
 
         <div className="newsFeed">
-        {/* <CreatePost /> */}
           {thisContext.state.posts.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
             let thisLang = langCheck(post.postLanguage)
