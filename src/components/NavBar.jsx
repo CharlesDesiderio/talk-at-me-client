@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../App.js'
+import { CreatePost } from './CreatePost.jsx'
 
 export const NavBar = () => {
 
@@ -7,7 +8,10 @@ export const NavBar = () => {
 
   return (
     <div className="navBar">
-      {thisContext.state.userToken ? thisContext.state.userData.displayName : ''}
+      <div>hbrgr</div>
+      <span>{thisContext.state.userToken ? thisContext.state.userData.displayName : ''}</span>
+      <div>{thisContext.state.userToken ? <CreatePost /> : ''}</div>
+      <div>{thisContext.state.userToken ? <button className="newPostNavButton" onClick={thisContext.state.toggleNewPostBox}>{thisContext.state.displayNewPostBox ? '❌' : '➕'}</button> : '' }</div>
     </div>
   )
 

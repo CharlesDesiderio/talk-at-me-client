@@ -7,8 +7,12 @@ export const CreatePost = () => {
 
   return (
     <div>
-      <form onSubmit={thisContext.state.handlePostPostedLanguageSubmit}>
-        <input required type="text" id="createPostPostedText" name="postedText" onChange={thisContext.state.handlePostPostedLanguageChange} value={thisContext.state.createPostPostedText} />
+    { thisContext.state.displayNewPostBox ? 
+    <div className="createPost">
+      <div className="createPostTitle">
+        Create New Post
+      </div>
+      <form className="createPostForm" onSubmit={thisContext.state.handlePostPostedLanguageSubmit}>
         <select required id="createPostPostedLanguage" name="postLanguage" onChange={thisContext.state.handlePostPostedLanguageChange} value={thisContext.state.createPostPostedLanguage}>
           <option value="EN">🇺🇸 English</option>
           <option value="AR">🇸🇦 Arabic</option>
@@ -24,7 +28,13 @@ export const CreatePost = () => {
           <option value="ES">🇪🇸 Spanish</option>
           <option value="SW">🇸🇪 Swedish</option>
         </select>
+        <textarea required type="textarea" id="createPostPostedText" name="postedText" onChange={thisContext.state.handlePostPostedLanguageChange} value={thisContext.state.createPostPostedText} />
+        <button type="submit">POOST</button>
+
+        <button onClick={thisContext.state.toggleNewPostBox}>X</button>
       </form>
+    </div> : ''
+    }
     </div>
   )
 

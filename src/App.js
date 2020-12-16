@@ -24,6 +24,12 @@ class AppProvider extends Component {
     createPostPostedLanguage: 'EN',
     newCommentText: '',
     posts: [],
+    displayNewPostBox: false,
+    toggleNewPostBox: () => {
+      this.setState({
+        displayNewPostBox: !this.state.displayNewPostBox
+      })
+    },
     getNewsFeed: () => {
       axios.get('http://localhost:3003/posts', {
         headers: {
