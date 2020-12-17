@@ -39,6 +39,46 @@ class AppProvider extends Component {
     displayMenu: false,
     fetchedUserData: {},
     filteredPostLanguage: 'EN',
+    editingPost: '',
+    editingPostText: '',
+    cancelEdit: () => {
+      this.setState({
+        editingPost: '',
+        editingPostText: ''
+      })
+    },
+    handleEditingPostSubmit: (event) => {
+      console.log('ding')
+      event.preventDefault()
+      axios.put(`http://localhost:3003/posts/edit/${this.state.editingPost}`, {
+        postedText: this.state.editingPostText
+      }, {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+    })
+    .then(() => {
+      this.setState({
+        editingPost: '',
+        editingPostText: ''
+      })
+      this.state.getNewsFeed()
+    })
+
+
+    },
+    editThisPost: (postId) => {
+      let foundPost = this.state.posts.find(item => item._id === postId)
+      this.setState({
+        editingPost: postId,
+        editingPostText: foundPost.postedText
+      })
+    },
+    handleEditPostChange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    },
     resetFilter: () => {
       this.setState({
         posts: this.state.defaultPosts,
@@ -59,10 +99,9 @@ class AppProvider extends Component {
       this.setState({
         posts: filteredPosts
       })
-      // here we'll set state
     },
     grabUserData: (userId) => {
-      axios.put('http://localhost:3003/users/profile', {
+      axios.get('http://localhost:3003/users/profile', {
         userId: userId
       }, {
         headers: {
@@ -70,7 +109,6 @@ class AppProvider extends Component {
         }
     })
     .then((res) => {
-      // console.log(foundUser)
       this.setState({
         fetchedUserData: res.foundUser
       })

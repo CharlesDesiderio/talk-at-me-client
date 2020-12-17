@@ -342,3 +342,15 @@ body {
   padding: 0 5px;
   margin: .25rem;
 }
+
+.editButton {
+  display: block;
+  border: 1px solid #03B1FF;
+  background-color: ghostwhite;
+  
+  height: 25px;
+  position: absolute;
+  top: 62px;
+  right: 72px;
+  border-radius: 20px;
+}

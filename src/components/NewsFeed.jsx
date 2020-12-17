@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AppContext } from '../App.js'
 import { CreateComment } from './CreateComment';
 import { DeletePost } from './DeletePost';
+import { EditPost } from './EditPost.jsx';
 import { FilterPosts } from './FilterPosts.jsx';
 
 export const NewsFeed = () => {
@@ -36,8 +37,13 @@ export const NewsFeed = () => {
                 <div className="postBodyText">
                   <span className="postBodyLanguageSpan">{thisLang}</span>
                   <br />
-                  {post.postedText}
+
+                  {thisContext.state.editingPost === post._id ? <EditPost post={post} /> : 
+                  post.postedText }
+
+                  {post.postCreatorId === thisContext.state.userData.userId ? <button className="editButton" onClick={() => thisContext.state.editThisPost(post._id)}>Edit</button> : ''}
                   {post.postCreatorId === thisContext.state.userData.userId ? <DeletePost postId={post._id} /> : ''}
+
                   <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
                     
                     <input className="likeSubmitButton" type="submit" value={post.likedUsers.includes(likedByUser) ? '❤️' : '🖤'}/><span className="likedHeartIcon">{post.likedUsers.length}</span>
