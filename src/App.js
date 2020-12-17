@@ -37,6 +37,11 @@ class AppProvider extends Component {
     displayNewPostBox: false,
     displayMenu: false,
     fetchedUserData: {},
+    filterPosts: (lang) => {
+      let filteredPosts = this.state.posts.filter(post => post.postedLanguage === lang)
+      console.log(filteredPosts)
+      // here we'll set state
+    },
     grabUserData: (userId) => {
       axios.put('http://localhost:3003/users/profile', {
         userId: userId

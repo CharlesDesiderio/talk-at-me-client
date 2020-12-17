@@ -22,9 +22,11 @@ export const NewsFeed = () => {
               <div key={post._id} className="postBody">
                 <div className="postBodyHeader">
                   <span className="spanBold">{post.postCreator}</span>
+                  
+                  {/* For whatever reason, I can't get Express to send the array of followers. It's in the object I'm trying to send on the server, but never arrives on the front end. Reference: API post.js line 44's forEach method  */}
                   {/* {post.postCreatorId === thisContext.state.userData.userId ? '' : <button onClick={() => thisContext.state.followUser(post.postCreatorId)}>Follow</button>} */}
 
-                  <h1>{post.postCreatorFollowers}</h1>
+                  {/* <h1>{post.postCreatorFollowers}</h1> */}
                   <span className="spanGray">{thisDate}</span>
                   
                 </div>
