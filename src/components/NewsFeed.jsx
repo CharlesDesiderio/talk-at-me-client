@@ -41,7 +41,7 @@ export const NewsFeed = () => {
                   {thisContext.state.editingPost === post._id ? <EditPost post={post} /> : 
                   post.postedText }
 
-                  {post.postCreatorId === thisContext.state.userData.userId ? <button className="editButton" onClick={() => thisContext.state.editThisPost(post._id)}>Edit</button> : ''}
+                  {post.postCreatorId === thisContext.state.userData.userId ? <button className="editButton" onClick={() => thisContext.state.editThisPost(post._id)}>{thisContext.state.editingPost === post._id ? 'Cancel' : 'Edit'}</button> : ''}
                   {post.postCreatorId === thisContext.state.userData.userId ? <DeletePost postId={post._id} /> : ''}
 
                   <form id={post._id} onSubmit={thisContext.state.handleNewLike}>

@@ -68,11 +68,15 @@ class AppProvider extends Component {
 
     },
     editThisPost: (postId) => {
-      let foundPost = this.state.posts.find(item => item._id === postId)
-      this.setState({
-        editingPost: postId,
-        editingPostText: foundPost.postedText
-      })
+      if (this.state.editingPost === postId) {
+        this.state.cancelEdit()
+      } else {
+        let foundPost = this.state.posts.find(item => item._id === postId)
+        this.setState({
+          editingPost: postId,
+          editingPostText: foundPost.postedText
+        })
+      }
     },
     handleEditPostChange: (event) => {
       this.setState({
