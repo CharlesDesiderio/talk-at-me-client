@@ -11,48 +11,22 @@ export const NewsFeed = () => {
     thisContext.state.getNewsFeed()
   }, [])
 
-  const langCheck = (lang) => {
-    switch (lang) {
-      case "EN":
-        return "🇺🇸 English";
-      case "AR":
-        return "🇸🇦 Arabic";
-      case "CN":
-        return "🇨🇳 Chinese";
-      case "FR":
-        return "🇫🇷 French";
-      case "DE":
-        return "🇩🇪 German";
-      case "HI":
-        return "🇮🇳 Hindi";
-      case "IT":
-        return "🇮🇹 Italian";
-      case "JP":
-        return "🇯🇵 Japanese";
-      case "KR":
-        return "🇰🇷 Korean";
-      case "PR":
-        return "🇵🇹 Portugese";
-      case "RU":
-        return "🇷🇺 Russian";
-      case "ES":
-        return "🇪🇸 Spanish";
-      case "SW":
-        return "🇸🇪 Swedish";
-    }
-  }
-
     return(
 
         <div className="newsFeed">
           {thisContext.state.posts.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
-            let thisLang = langCheck(post.postLanguage)
+            let thisLang = thisContext.state.langCheck(post.postLanguage)
             let likedByUser = thisContext.state.userData.userId //post.likedUsers.includes()
             return (
               <div key={post._id} className="postBody">
                 <div className="postBodyHeader">
                   <span className="spanBold">{post.postCreator}</span>
+                  
+                  {/* For whatever reason, I can't get Express to send the array of followers. It's in the object I'm trying to send on the server, but never arrives on the front end. Reference: API post.js line 44's forEach method  */}
+                  {/* {post.postCreatorId === thisContext.state.userData.userId ? '' : <button onClick={() => thisContext.state.followUser(post.postCreatorId)}>Follow</button>} */}
+
+                  {/* <h1>{post.postCreatorFollowers}</h1> */}
                   <span className="spanGray">{thisDate}</span>
                   
                 </div>
