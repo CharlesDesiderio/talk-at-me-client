@@ -34,12 +34,31 @@ class AppProvider extends Component {
     createPostPostedLanguage: '',
     newCommentText: '',
     posts: [],
+    defaultPosts: [],
     displayNewPostBox: false,
     displayMenu: false,
     fetchedUserData: {},
-    filterPosts: (lang) => {
-      let filteredPosts = this.state.posts.filter(post => post.postedLanguage === lang)
-      console.log(filteredPosts)
+    filteredPostLanguage: 'EN',
+    resetFilter: () => {
+      this.setState({
+        posts: this.state.defaultPosts,
+        filteredPostLanguage: this.state.userData.userLanguage
+
+      })
+    },
+    handleFilteredLanguageChange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    },
+    filterPosts: (event) => {
+      event.preventDefault()
+
+      let filteredPosts = this.state.defaultPosts.filter(post => post.postLanguage === this.state.filteredPostLanguage)
+      
+      this.setState({
+        posts: filteredPosts
+      })
       // here we'll set state
     },
     grabUserData: (userId) => {
@@ -90,7 +109,8 @@ class AppProvider extends Component {
             return b.postDate - a.postDate
           })
           this.setState({
-            posts: res.data.posts
+            posts: res.data.posts,
+            defaultPosts: res.data.posts
           })
         })
     },

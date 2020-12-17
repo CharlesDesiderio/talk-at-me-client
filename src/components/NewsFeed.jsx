@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AppContext } from '../App.js'
 import { CreateComment } from './CreateComment';
 import { DeletePost } from './DeletePost';
+import { FilterPosts } from './FilterPosts.jsx';
 
 export const NewsFeed = () => {
 
@@ -14,12 +15,14 @@ export const NewsFeed = () => {
     return(
 
         <div className="newsFeed">
+          <FilterPosts />
           {thisContext.state.posts.map(post => {
             let thisDate = new Date(post.postDate * 1).toLocaleString()
             let thisLang = thisContext.state.langCheck(post.postLanguage)
             let likedByUser = thisContext.state.userData.userId //post.likedUsers.includes()
             return (
               <div key={post._id} className="postBody">
+                
                 <div className="postBodyHeader">
                   <span className="spanBold">{post.postCreator}</span>
                   

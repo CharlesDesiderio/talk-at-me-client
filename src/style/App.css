@@ -314,3 +314,31 @@ body {
   border-bottom: 1px solid gray;
   margin-bottom: 8px;
 }
+
+.filterPosts {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  display: flex;
+  flex-direction: row;
+  z-index: 7;
+}
+
+.filterPostsSelect select {
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #08E0A8;
+  border-radius: 15px;
+  margin: .25rem;
+}
+
+.filterPosts button {
+  height: 25px;
+  font-size: .65rem;
+  border: none;
+  background-color: #08E0A8;
+  border-radius: 25px;
+  padding: 0 5px;
+  margin: .25rem;
+}
