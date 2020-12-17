@@ -49,6 +49,13 @@ class AppProvider extends Component {
     newUserNativeLanguage: 'EN',
     newUserTargetLanguage: 'AR',
     serverFail: false,
+    logout: () => {
+      this.setState({
+        userToken: '',
+        userData: {},
+        displayMenu: false
+      })
+    },
     newUserRegisterHandleCange: (event) => {
       this.setState({
         [event.target.id]: event.target.value
@@ -72,7 +79,13 @@ class AppProvider extends Component {
           userToken: res.data.token,
           userData: res.data.user,
           userLanguage: res.data.user.userLanguage,
-          createPostPostedLanguage: res.data.user.userLanguage
+          createPostPostedLanguage: res.data.user.userLanguage,
+          startRegistration: false,
+          newUserDisplayName: '',
+          newUserEmail: '',
+          newUserPassword: '',
+          newUserNativeLanguage: 'EN',
+          newUserTargetLanguage: 'AR',
         })
       })
     },
@@ -214,7 +227,9 @@ class AppProvider extends Component {
           userToken: res.data.token,
           userData: res.data.user,
           userLanguage: res.data.user.userLanguage,
-          createPostPostedLanguage: res.data.user.userLanguage
+          createPostPostedLanguage: res.data.user.userLanguage,
+          loginEmail: '',
+          loginPassword: ''
         })
       })
       .catch(err => {

@@ -389,6 +389,15 @@ body {
   
 }
 
+.register select {
+  display: block;
+  margin: .5rem auto;
+  padding: 4px;
+  border: 2px solid #03B1FF;
+  border-radius: 10px;
+
+}
+
 .registerButtonDiv {
   text-align: center;
   margin: auto;
@@ -417,4 +426,77 @@ body {
 .authFail {
   text-align: center;
   color: red;
+}
+
+@media only screen and (min-width: 500px) {
+  .newsFeed {
+    width: 30%;
+  }
+
+  .loginUser {
+    width: 400px;
+  }
+
+  .registerButton {
+    width: 200px;
+  }
+
+  .registerCancelButton {
+    width: 200px;
+  }
+
+  .postBody {
+    width: 600px;
+    margin: auto;
+  }
+
+  .postBodyText {
+    width: 550px;
+  }
+
+  .navBar {
+    width: 600px;
+    margin: auto;
+  }
+
+  .container {
+    width: 600px;
+    
+  }
+
+  body {
+    width: 600px;
+    margin: auto;
+    background-color: slategray;
+
+  }
+
+  .profile {
+    width: 50%;
+    left: 25%;
+  }
+
+  .createPost {
+    width: 80%;
+    left: 10%;
+    top: 30%;
+  }
+
+  .register {
+    width: 500px;
+    margin: auto;
+  }
+
+  .register input {
+    width: 250px;
+  }
+
+  .register select {
+    width: 200px;
+  }
+
+  .registerCancelButton {
+    width: 250px;
+  }
+
 }

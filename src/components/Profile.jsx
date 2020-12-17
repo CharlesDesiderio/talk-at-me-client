@@ -16,6 +16,8 @@ export const Profile = () => {
       <h2>{thisContext.state.langCheck(thisContext.state.userData.nativeLanguage)}</h2>
       <h4>Learning Language:</h4>
       <h2>{thisContext.state.langCheck(thisContext.state.userData.userLanguage)}</h2>
+      <br />
+      <h2 onClick={thisContext.state.logout}>Logout</h2>
     </div>
   )
 
