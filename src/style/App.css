@@ -295,3 +295,22 @@ body {
   left: 0;
   z-index: 10;
 }
+
+.closeProfileButton {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #08E0A8;
+  border: none;
+  color: black;
+}
+
+.profile h2 {
+  display: block;
+  margin-top: 0;
+}
+
+.profile h4 {
+  border-bottom: 1px solid gray;
+  margin-bottom: 8px;
+}

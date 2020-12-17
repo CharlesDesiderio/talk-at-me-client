@@ -36,6 +36,34 @@ class AppProvider extends Component {
     posts: [],
     displayNewPostBox: false,
     displayMenu: false,
+    fetchedUserData: {},
+    grabUserData: (userId) => {
+      axios.put('http://localhost:3003/users/profile', {
+        userId: userId
+      }, {
+        headers: {
+          Authorization: `Bearer ${this.state.userToken}`
+        }
+    })
+    .then((res) => {
+      // console.log(foundUser)
+      this.setState({
+        fetchedUserData: res.foundUser
+      })
+    })
+    },
+    followUser: (userId) => {
+      axios.put('http://localhost:3003/users/follow', {
+          userId: userId
+        }, {
+          headers: {
+            Authorization: `Bearer ${this.state.userToken}`
+          }
+      })
+      .then(() => {
+        this.state.getNewsFeed()
+      })
+    },
     showBurger: () => {
       this.setState({
         displayMenu: !this.state.displayMenu
