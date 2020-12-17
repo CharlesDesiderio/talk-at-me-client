@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+
+body {
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+  background-color: ghostwhite;
+}
+
+.container {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  background-color: ghostwhite;
+  margin: 0;
+  margin-top: 37px;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  }
+
+.navBar {
+  box-sizing: border-box;
+  text-align: center;
+  width: 100vw;
+  height: 65px;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  margin: 0;
+  background-color: #0B0A0B;
+  position: absolute;
+  top: -37px;
+  color: white;
+  border-bottom: 5px solid #03B1FF;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.newsFeed {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 5rem;
+  height: 100%;
+}
+
+.postBody {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0px;
+  width: 100vw;
+  padding: 1rem;
+  border-top: 5px solid #08E0A8;
+  border-bottom: 5px solid #03B1FF;
+  padding-bottom: 3rem;
+}
+
+.postBodyHeader {
+  width: 100%;
+}
+
+.postBodyHeader span {
+  display: block;
+}
+
+.spanBold {
+  font-weight: 700;
+}
+
+.spanGray {
+  font-size: .85rem;
+  color: lightgray;
+}
+
+.postBodyText {
+  word-wrap: break-word;
+  width: 85vw;
+  margin: auto;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.postBodyLanguageSpan {
+  font-size: .75rem;
+  display: inline-block;
+  background-color: rgb(8, 224, 168, 0.25);
+  padding: .05rem .5rem;
+  border-radius: 20px;
+  margin-bottom: .25rem;
+}
+
+.postComment {
+  font-size: .85rem;
+  width: 85vw;
+  margin: auto;
+  padding-top: .5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.commentDecorBox {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  border-radius: 0 0 0 4px;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin-right: 5px;
+}
+
+.postCommentDetail {
+  display: block;
+}
+
+.postCommentName {
+  font-weight: 700;
+}
+
+.postCommentTime {
+  display: inline-block;
+  margin-left: .5rem;
+  color: lightgray;
+}
+
+.likeSubmitButton {
+  border: none;
+  background-color: ghostwhite;
+  padding: .25rem;
+  font-size: .75rem;
+}
+
+.likedHeartIcon {
+  padding-left: 5px;
+  font-size: .75rem;
+}
+
+.loginUser {
+  width: 60vw;
+  margin: auto;
+  padding: 1rem;
+}
+
+.loginUser form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.loginUser input {
+  font-size: .75rem;
+  margin: .5rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #08E0A8;
+  
+}
+
+.loginButton {
+  width: 50%;
+  margin: .5rem auto !important;
+  display: block;
+  background-color: #08E0A8;
+}
+
+.loginButton:hover {
+  background-color: white;
+}
+
+.commentForm {
+  margin-top: .5rem;
+}
+
+.commentFormInput {
+  font-size: .65rem;
+  margin-left: 2rem;
+  margin-top: 5px;
+  padding: 4px 5px;
+  border-radius: 5px;
+  width: 60%;
+  border: 1px solid lightgray;
+}
+
+.commentFormButton {
+  font-size: .65rem;
+  margin-left: 10px;
+  background-color: #08E0A8;
+  border: none;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+
+.deletePostButton {
+  position: absolute;
+  top: 62px;
+  right: 40px;
+  font-size: .65rem;
+  border: 1px solid red;
+  background-color: ghostwhite;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.createPost {
+  position: absolute;
+  z-index: 5;
+  top: 20vw;
+  left: 5vw;
+  width: 90vw;
+  height: 235px;
+  box-sizing: border-box;
+  border: 5px solid #03B1FF;
+  background-color: white;
+  z-index: 8;
+}
+
+.creaetPostForm {
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.createPostForm textarea {
+  display: block;
+  width: 80%;
+  margin: auto;
+  height: 100px;
+  margin-top: 5px;
+}
+
+.createPostForm select {
+  display: block;
+  margin: auto;
+  margin-top: 5px;
+  padding: 3px;
+}
+
+.createPostTitle {
+  color:  ghostwhite;
+  box-sizing: border-box;
+  background-color: #0B0A0B;
+  margin: 0;
+  padding: .5rem;
+  width: 100%;
+  border-bottom: 5px solid  #03B1FF;
+}
+
+.newPostNavButton {
+  background-color: #03B1FF;
+  border: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.createPostForm button {
+  border: none;
+  background-color: #08E0A8;
+  height: 25px;
+  width: 25px;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.createPostButtonsContainer {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5px;
+}
+
+.hamburgerButton {
+  border: none;
+  background-color: black;
+  color: ghostwhite;
+}
+
+.profile {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  border: 5px solid #08E0A8;
+  background-color: ghostwhite;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.closeProfileButton {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #08E0A8;
+  border: none;
+  color: black;
+}
+
+.profile h2 {
+  display: block;
+  margin-top: 0;
+}
+
+.profile h4 {
+  border-bottom: 1px solid gray;
+  margin-bottom: 8px;
+}
+
+.filterPosts {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  display: flex;
+  flex-direction: row;
+  z-index: 7;
+}
+
+.filterPostsSelect select {
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #08E0A8;
+  border-radius: 15px;
+  margin: .25rem;
+}
+
+.filterPosts button {
+  height: 25px;
+  font-size: .65rem;
+  border: none;
+  background-color: #08E0A8;
+  border-radius: 25px;
+  padding: 0 5px;
+  margin: .25rem;
+}
+
+.editButton {
+  display: block;
+  border: 1px solid #03B1FF;
+  background-color: ghostwhite;
+  border-radius: 20px;
+  height: 25px;
+  position: absolute;
+  top: 62px;
+  right: 72px;
+}
+
+.editPost textarea {
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+.editPost input {
+  border: 1px solid #03B1FF;
+  background-color: ghostwhite;
+  border-radius: 20px;
+  height: 25px;
+}
+
+.register {
+
+  width: 60vw;
+  margin: auto;
+  padding: 1rem;
+}
+
+.register h4 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.register input {
+  display: block;
+  margin: auto;
+  padding: 4px;
+  border: 2px solid #03B1FF;
+  border-radius: 10px;
+  
+}
+
+.register select {
+  display: block;
+  margin: .5rem auto;
+  padding: 4px;
+  border: 2px solid #03B1FF;
+  border-radius: 10px;
+
+}
+
+.registerButtonDiv {
+  text-align: center;
+  margin: auto;
+}
+
+.registerCancelButton {
+  margin: 1rem auto;
+  display: block;
+  width: 30%;
+  padding: 6px;
+  border: none;
+  border-radius: 10px;
+  background-color: #08E0A8;
+}
+
+.registerButton {
+  display: block;
+  margin: auto;
+  width: 27vw;
+  border: none;
+  background-color: #03B1FF;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.authFail {
+  text-align: center;
+  color: red;
+}
+
+@media only screen and (min-width: 500px) {
+  .newsFeed {
+    width: 30%;
+  }
+
+  .loginUser {
+    width: 400px;
+  }
+
+  .registerButton {
+    width: 200px;
+  }
+
+  .registerCancelButton {
+    width: 200px;
+  }
+
+  .postBody {
+    width: 600px;
+    margin: auto;
+  }
+
+  .postBodyText {
+    width: 550px;
+  }
+
+  .navBar {
+    width: 600px;
+    margin: auto;
+  }
+
+  .container {
+    width: 600px;
+    
+  }
+
+  body {
+    width: 600px;
+    margin: auto;
+    background-color: slategray;
+
+  }
+
+  .profile {
+    width: 50%;
+    left: 25%;
+  }
+
+  .createPost {
+    width: 80%;
+    left: 10%;
+    top: 30%;
+  }
+
+  .register {
+    width: 500px;
+    margin: auto;
+  }
+
+  .register input {
+    width: 250px;
+  }
+
+  .register select {
+    width: 200px;
+  }
+
+  .registerCancelButton {
+    width: 250px;
+  }
+
+}
