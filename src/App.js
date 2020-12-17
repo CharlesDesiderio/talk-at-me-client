@@ -87,7 +87,6 @@ class AppProvider extends Component {
       this.setState({
         posts: this.state.defaultPosts,
         filteredPostLanguage: this.state.userData.userLanguage
-
       })
     },
     handleFilteredLanguageChange: (event) => {
