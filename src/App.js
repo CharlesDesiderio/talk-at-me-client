@@ -13,6 +13,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faBars, faTimes, faPlus, faShare } from '@fortawesome/free-solid-svg-icons'
 import { Profile } from './components/Profile';
+import { Register } from './components/Register';
 
 // Add icons to FontAwesome library
 library.add(fab, faBars, faTimes, faPlus, faShare)
@@ -41,14 +42,52 @@ class AppProvider extends Component {
     filteredPostLanguage: 'EN',
     editingPost: '',
     editingPostText: '',
+    startRegistration: false,
+    newUserDisplayName: '',
+    newUserEmail: '',
+    newUserPassword: '',
+    newUserNativeLanguage: 'EN',
+    newUserTargetLanguage: 'AR',
+    newUserRegisterHandleCange: (event) => {
+      this.setState({
+        [event.target.id]: event.target.value
+      })
+    },
+    newUserRegisterHandleSubmit: (event) => {
+      event.preventDefault()
+      axios.post('http://localhost:3003/users/register', {
+        displayName: this.state.newUserDisplayName,
+        email: this.state.newUserEmail,
+        password: this.state.newUserPassword,
+        nativeLanguage: this.state.newUserNativeLanguage,
+        targetLanguage: this.state.newUserTargetLanguage
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => {
+        this.setState({
+          userToken: res.data.token,
+          userData: res.data.user,
+          userLanguage: res.data.user.userLanguage,
+          createPostPostedLanguage: res.data.user.userLanguage
+        })
+      })
+    },
     cancelEdit: () => {
       this.setState({
         editingPost: '',
         editingPostText: ''
       })
     },
+    startRegister: (event) => {
+      event.preventDefault()
+      this.setState({
+        startRegistration: !this.state.startRegistration
+      })
+    },
     handleEditingPostSubmit: (event) => {
-      console.log('ding')
       event.preventDefault()
       axios.put(`http://localhost:3003/posts/edit/${this.state.editingPost}`, {
         postedText: this.state.editingPostText
@@ -64,8 +103,6 @@ class AppProvider extends Component {
       })
       this.state.getNewsFeed()
     })
-
-
     },
     editThisPost: (postId) => {
       if (this.state.editingPost === postId) {
@@ -308,7 +345,7 @@ export default class App extends Component {
                 {context.state.displayMenu === true ? <Profile /> : ''}
                 <NavBar />
                 {context.state.userToken.length === 0 ? 
-                  <LoginUser />
+                  context.state.startRegistration === true ? <Register /> : <LoginUser />
                   : 
                   <NewsFeed />  
                 }

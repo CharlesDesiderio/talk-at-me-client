@@ -25,6 +25,7 @@ export default class LoginUser extends Component {
                 id="loginPassword"
               />
               <input className="loginButton" type="submit" value="Login" />
+              <div className="registerButtonDiv">New user? <button className="registerButton" onClick={context.state.startRegister}>Sign up here!</button></div>
             </form>
           )}
         </AppContext.Consumer>
