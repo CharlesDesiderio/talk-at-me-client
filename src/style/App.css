@@ -366,3 +366,54 @@ body {
   border-radius: 20px;
   height: 25px;
 }
+
+.register {
+
+  width: 60vw;
+  margin: auto;
+  padding: 1rem;
+}
+
+.register h4 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.register input {
+  display: block;
+  margin: auto;
+  padding: 4px;
+  border: 2px solid #03B1FF;
+  border-radius: 10px;
+  
+}
+
+.registerButtonDiv {
+  text-align: center;
+  margin: auto;
+}
+
+.registerCancelButton {
+  margin: 1rem auto;
+  display: block;
+  width: 30%;
+  padding: 6px;
+  border: none;
+  border-radius: 10px;
+  background-color: #08E0A8;
+}
+
+.registerButton {
+  display: block;
+  margin: auto;
+  width: 27vw;
+  border: none;
+  background-color: #03B1FF;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.authFail {
+  text-align: center;
+  color: red;
+}
