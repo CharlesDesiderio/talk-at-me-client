@@ -218,7 +218,8 @@ class AppProvider extends Component {
         password: this.state.loginPassword
       }, {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
         }
       })
       .then(res => {
