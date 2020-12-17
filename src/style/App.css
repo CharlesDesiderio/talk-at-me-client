@@ -217,6 +217,7 @@ body {
   box-sizing: border-box;
   border: 5px solid #03B1FF;
   background-color: white;
+  z-index: 8;
 }
 
 .creaetPostForm {
