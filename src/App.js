@@ -71,7 +71,8 @@ class AppProvider extends Component {
         targetLanguage: this.state.newUserTargetLanguage
       }, {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
         }
       })
       .then(res => {
