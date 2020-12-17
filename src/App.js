@@ -48,6 +48,7 @@ class AppProvider extends Component {
     newUserPassword: '',
     newUserNativeLanguage: 'EN',
     newUserTargetLanguage: 'AR',
+    serverFail: false,
     newUserRegisterHandleCange: (event) => {
       this.setState({
         [event.target.id]: event.target.value
@@ -208,11 +209,17 @@ class AppProvider extends Component {
         }
       })
       .then(res => {
+
         this.setState({
           userToken: res.data.token,
           userData: res.data.user,
           userLanguage: res.data.user.userLanguage,
           createPostPostedLanguage: res.data.user.userLanguage
+        })
+      })
+      .catch(err => {
+        this.setState({
+          serverFail: true
         })
       })
     },

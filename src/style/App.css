@@ -412,3 +412,8 @@ body {
   padding: 8px;
   border-radius: 5px;
 }
+
+.authFail {
+  text-align: center;
+  color: red;
+}
