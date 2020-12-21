@@ -72,7 +72,7 @@ class AppProvider extends Component {
       }, {
         headers: {
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': 'https://talkatme.herokuapp.com/',
+          'Access-Control-Allow-Origin': '*',
         }
       })
       .then(res => {
@@ -220,7 +220,7 @@ class AppProvider extends Component {
       }, {
         headers: {
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': 'https://talkatme.herokuapp.com/',
+          'Access-Control-Allow-Origin': '*',
         }
       })
       .then(res => {
