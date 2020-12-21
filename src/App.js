@@ -73,6 +73,7 @@ class AppProvider extends Component {
         headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true
         }
       })
       .then(res => {
@@ -221,6 +222,7 @@ class AppProvider extends Component {
         headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true
         }
       })
       .then(res => {
