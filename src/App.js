@@ -79,8 +79,8 @@ class AppProvider extends Component {
         this.setState({
           userToken: res.data.token,
           userData: res.data.user,
-          userLanguage: res.data.user.userLanguage,
-          createPostPostedLanguage: res.data.user.userLanguage,
+          userLanguage: this.state.newUserTargetLanguage,
+          createPostPostedLanguage: this.state.newUserTargetLanguage,
           startRegistration: false,
           newUserDisplayName: '',
           newUserEmail: '',
