@@ -63,7 +63,7 @@ class AppProvider extends Component {
     },
     newUserRegisterHandleSubmit: (event) => {
       event.preventDefault()
-      axios.post('http://localhost:3003/users/register', {
+      axios.post('https://talkatmeserver.herokuapp.com/users/register', {
         displayName: this.state.newUserDisplayName,
         email: this.state.newUserEmail,
         password: this.state.newUserPassword,
@@ -105,7 +105,7 @@ class AppProvider extends Component {
     },
     handleEditingPostSubmit: (event) => {
       event.preventDefault()
-      axios.put(`http://localhost:3003/posts/edit/${this.state.editingPost}`, {
+      axios.put(`https://talkatmeserver.herokuapp.com/posts/edit/${this.state.editingPost}`, {
         postedText: this.state.editingPostText
       }, {
         headers: {
@@ -157,7 +157,7 @@ class AppProvider extends Component {
       })
     },
     grabUserData: (userId) => {
-      axios.get('http://localhost:3003/users/profile', {
+      axios.get('https://talkatmeserver.herokuapp.com/users/profile', {
         userId: userId
       }, {
         headers: {
@@ -171,7 +171,7 @@ class AppProvider extends Component {
     })
     },
     followUser: (userId) => {
-      axios.put('http://localhost:3003/users/follow', {
+      axios.put('https://talkatmeserver.herokuapp.com/users/follow', {
           userId: userId
         }, {
           headers: {
@@ -193,7 +193,7 @@ class AppProvider extends Component {
       })
     },
     getNewsFeed: () => {
-      axios.get('http://localhost:3003/posts', {
+      axios.get('https://talkatmeserver.herokuapp.com/posts', {
         headers: {
           Authorization: `Bearer ${this.state.userToken}`
         }
@@ -216,7 +216,7 @@ class AppProvider extends Component {
     },
     handleLoginSubmit: (event) => {
       event.preventDefault()
-      axios.post('http://localhost:3003/users/login', {
+      axios.post('https://talkatmeserver.herokuapp.com/users/login', {
         email: this.state.loginEmail,
         password: this.state.loginPassword
       }, {
@@ -251,7 +251,7 @@ class AppProvider extends Component {
     handlePostPostedLanguageSubmit: (event) => {
       event.preventDefault()
 
-      axios.post('http://localhost:3003/posts', {
+      axios.post('https://talkatmeserver.herokuapp.com/posts', {
         text: this.state.createPostPostedText,
         language: this.state.createPostPostedLanguage
       }, {
@@ -271,7 +271,7 @@ class AppProvider extends Component {
     handleNewLike: (event) => {
       event.preventDefault()
 
-      axios.get(`http://localhost:3003/posts/like/${event.target.id}`, {
+      axios.get(`https://talkatmeserver.herokuapp.com/posts/like/${event.target.id}`, {
         headers: {
           Authorization: `Bearer ${this.state.userToken}`
         }
@@ -288,7 +288,7 @@ class AppProvider extends Component {
     handleCommentSubmit: (event, postId) => {
       event.preventDefault()
       let newCommentText = `newCommentText${postId}`
-      axios.put(`http://localhost:3003/posts/comment`, {
+      axios.put(`https://talkatmeserver.herokuapp.com/posts/comment`, {
           commentText: this.state[`newCommentText${postId}`],
           postId: postId
         },
@@ -308,7 +308,7 @@ class AppProvider extends Component {
     deletePost: (event, postId) => {
       event.preventDefault()
 
-      axios.delete(`http://localhost:3003/posts/delete/${postId}`, {
+      axios.delete(`https://talkatmeserver.herokuapp.com/posts/delete/${postId}`, {
         headers: {
           Authorization: `Bearer ${this.state.userToken}`
         }
