@@ -25,7 +25,7 @@ export const NewsFeed = () => {
               <div key={post._id} className="postBody">
                 
                 <div className="postBodyHeader">
-                  <span className="spanBold">{post.postCreator}</span>
+                  <span className="spanBold">{post.postCreator.displayName}</span>
                   
                   {/* For whatever reason, I can't get Express to send the array of followers. It's in the object I'm trying to send on the server, but never arrives on the front end. Reference: API post.js line 44's forEach method  */}
                   {/* {post.postCreatorId === thisContext.state.userData.userId ? '' : <button onClick={() => thisContext.state.followUser(post.postCreatorId)}>Follow</button>} */}
@@ -41,8 +41,8 @@ export const NewsFeed = () => {
                   {thisContext.state.editingPost === post._id ? <EditPost post={post} /> : 
                   post.postedText }
 
-                  {post.postCreatorId === thisContext.state.userData.userId ? <button className="editButton" onClick={() => thisContext.state.editThisPost(post._id)}>{thisContext.state.editingPost === post._id ? 'Cancel' : 'Edit'}</button> : ''}
-                  {post.postCreatorId === thisContext.state.userData.userId ? <DeletePost postId={post._id} /> : ''}
+                  {post.postCreator._id === thisContext.state.userData.userId ? <button className="editButton" onClick={() => thisContext.state.editThisPost(post._id)}>{thisContext.state.editingPost === post._id ? 'Cancel' : 'Edit'}</button> : ''}
+                  {post.postCreator._id === thisContext.state.userData.userId ? <DeletePost postId={post._id} /> : ''}
 
                   <form id={post._id} onSubmit={thisContext.state.handleNewLike}>
                     
@@ -51,11 +51,12 @@ export const NewsFeed = () => {
                 </div>
                 <div>{post.comments.map(comment => {
                   let thisDate = new Date(comment.commentDate * 1).toLocaleString()
+                  console.log(comment.commentCreator.displayName)
                   return (
                     <div key={comment._id} className="postComment">
                       <div className="commentDecorBox"></div>
                       <div className="commentDetail">
-                        <span className="postCommentName">{comment.userId}</span><span className="postCommentTime">{thisDate}</span>
+                        <span className="postCommentName">{comment.commentCreator.displayName}</span><span className="postCommentTime">{thisDate}</span>
                         <span className="postCommentDetail">{comment.commentText}</span>
 
                       </div>

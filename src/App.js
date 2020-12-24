@@ -202,6 +202,7 @@ class AppProvider extends Component {
           res.data.posts.sort((a, b) => {
             return b.postDate - a.postDate
           })
+          console.log(res.data.posts)
           this.setState({
             posts: res.data.posts,
             defaultPosts: res.data.posts
