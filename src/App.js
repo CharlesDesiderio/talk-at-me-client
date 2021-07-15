@@ -243,6 +243,37 @@ class AppProvider extends Component {
         })
       })
     },
+
+    handleGuestLoginSubmit: (event) => {
+      event.preventDefault()
+      axios.post('https://talkatmeserver.herokuapp.com/users/login', {
+        email: 'guest@guest.com',
+        password: 'password'
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true
+        }
+      })
+      .then(res => {
+
+        this.setState({
+          userToken: res.data.token,
+          userData: res.data.user,
+          userLanguage: res.data.user.userLanguage,
+          createPostPostedLanguage: res.data.user.userLanguage,
+          loginEmail: '',
+          loginPassword: ''
+        })
+      })
+      .catch(err => {
+        this.setState({
+          serverFail: true
+        })
+      })
+    },
+
     handlePostPostedLanguageChange: (event) => {
       this.setState({
         [event.target.id]: event.target.value

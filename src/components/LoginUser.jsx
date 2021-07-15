@@ -27,7 +27,9 @@ export default class LoginUser extends Component {
               />
               {context.state.serverFail === true ? <div className="authFail">Authentication Failed</div> : '' }
               <input className="loginButton" type="submit" value="Login" />
-              <div className="registerButtonDiv">New user? <button className="registerButton" onClick={context.state.startRegister}>Sign up here!</button></div>
+              <div className="registerButtonDiv">New user? <button className="registerButton" onClick={context.state.startRegister}>Sign up here!</button>
+              <button className="guestLoginButton" onClick={context.state.handleGuestLoginSubmit}>Log In As Guest</button>
+              </div>
             </form>
           )}
         </AppContext.Consumer>

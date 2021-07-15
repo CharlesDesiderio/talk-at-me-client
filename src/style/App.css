@@ -167,6 +167,19 @@ body {
   background-color: #08E0A8;
 }
 
+.guestLoginButton {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  width: 100%;
+  transform: scale(1.1);
+  border: 2px solid black;
+  font-weight: bold;
+  background-color: #03B1FF;
+  padding: 8px;
+  border-radius: 5px;
+}
+
 .loginButton:hover {
   background-color: white;
 }
