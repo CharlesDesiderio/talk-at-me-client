@@ -10,6 +10,10 @@ body {
   background-color: ghostwhite;
 }
 
+a, button, .loginButton, .likeSubmitButton, .commentFormButton, .deletePostButton {
+  cursor: pointer;
+}
+
 .container {
   box-sizing: border-box;
   position: absolute;
@@ -168,6 +172,7 @@ body {
 }
 
 .guestLoginButton {
+  
   display: block;
   margin: auto;
   margin-top: 2rem;
